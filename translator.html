@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="page.css">
+    <title>Iglooghost Translator</title>
+    <script>
+        var chartotal = 0;
+        var string = "";
+        function clearChk() {
+            document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+        };
+        function checkbox(cb) {
+            var val = cb.checked ? cb.value : 0 - cb.value;
+            chartotal = parseInt(chartotal) + parseInt(val);
+        };
+        function submit() {
+            var char = chartotal > 32 && chartotal < 59 ? String.fromCharCode(chartotal + 32) : "";
+            string = string + char;
+            updateTxt();
+            chartotal = 0;
+        };
+        function space() {
+            string = string + " ";
+            updateTxt();
+        };
+        function bkspc() {
+            string = string.slice(0,-1);
+            updateTxt();
+        };
+        function clearString() {
+            string = "";
+            updateTxt();
+        };
+        function updateTxt() {
+            document.getElementById('textConv').value = string + "_";
+            document.getElementById('textConvExo').value = string + "_";
+            clearChk();
+        };
+    </script>
+</head>
+<body onload="updateTxt()">
+
+<h1>Iglooghost Translator</h1>
+<p>Quick & dirty page for converting one of the new Iglooghost alphabets on <a href="https://exoportal.xyz">Exoportal.xyz</a>.</p>
+
+<div class="alphabet">
+    <table>
+        <tr>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>G</th>
+            <th>H</th>
+            <th>I</th>
+            <th>J</th>
+            <th>K</th>
+            <th>L</th>
+            <th>M</th>
+            <th>N</th>
+            <th>O</th>
+            <th>P</th>
+            <th>Q</th>
+            <th>R</th>
+            <th>S</th>
+            <th>T</th>
+            <th>U</th>
+            <th>V</th>
+            <th>W</th>
+            <th>X</th>
+            <th>Y</th>
+            <th>Z</th>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+            <td>L</td>
+            <td>M</td>
+            <td>N</td>
+            <td>O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+            <td>Z</td>
+        </tr>
+    </table>
+</div>
+
+<div class="textConv">
+    <p>English:</p>
+    <textarea type="text" id="textConv"></textarea>
+</div>
+
+<div class="textConvExo">
+    <p>New Alpha:</p>
+    <textarea type="text" id="textConvExo" maxlength="200"></textarea>
+</div>
+
+<div class="charInput">
+    <table>
+        <tr>
+            <td><input type="checkbox" value="32" onclick="checkbox(this)"></td>
+            <td><input type="checkbox" value="8" onclick="checkbox(this)"></td>
+            <td><input type="checkbox" value="4" onclick="checkbox(this)"></td>
+            <td>&nbsp;</td>
+            <td><input type="button" value="Bkspc" onclick="bkspc()"></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="16" onclick="checkbox(this)"></td>
+            <td><input type="checkbox" value="2" onclick="checkbox(this)"></td>
+            <td><input type="checkbox" value="1" onclick="checkbox(this)"></td>
+            <td><input type="button" value="Submit" onclick="submit()"></td>
+            <td><input type="button" value="Space" onclick="space()"></td>
+            <td><input type="button" value="Clear" onclick="clearString()"></td>
+        </tr>
+    </table>
+    
+</div>
+
+
+
+</body>
+</html> 
