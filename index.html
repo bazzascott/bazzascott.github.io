@@ -24,13 +24,17 @@
             string = string + " ";
             updateTxt();
         }
+        function bkspc() {
+            string = string.slice(0,-1);
+            updateTxt()
+        }
         function clearString() {
             string = "" + "";
             updateTxt();
         }
         function updateTxt() {
-            document.getElementById('textConv').value = string;
-            document.getElementById('textConvExo').value = string;
+            document.getElementById('textConv').value = string + "_";
+            document.getElementById('textConvExo').value = string + "_";
             clearChk();
         }
     </script>
@@ -117,12 +121,13 @@
             <td><input type="checkbox" value="32" onclick="checkbox(this)"><span class="checkmark"></span></td>
             <td><input type="checkbox" value="8" onclick="checkbox(this)"><span class="checkmark"></span></td>
             <td><input type="checkbox" value="4" onclick="checkbox(this)"><span class="checkmark"></span></td>
+            <td>&nbsp;</td>
+            <td><input type="button" value="Bkspc" onclick="bkspc()"></td>
         </tr>
         <tr>
             <td><input type="checkbox" value="16" onclick="checkbox(this)"><span class="checkmark"></span></td>
             <td><input type="checkbox" value="2" onclick="checkbox(this)"><span class="checkmark"></span></td>
             <td><input type="checkbox" value="1" onclick="checkbox(this)"><span class="checkmark"></span></td>
-            <td></td>
             <td><input type="button" value="Submit" onclick="submit()"></td>
             <td><input type="button" value="Space" onclick="space()"></td>
             <td><input type="button" value="Clear" onclick="clearString()"></td>
