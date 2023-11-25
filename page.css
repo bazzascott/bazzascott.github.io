@@ -1,0 +1,53 @@
+body {
+    background-color: rgb(50, 50, 50);
+}
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+a {
+    color: rgb(214, 126, 10);
+    text-decoration: none;
+}
+
+.alphabet table {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    border-spacing: 8px;
+    width: fit-content;
+}
+
+.alphabet table th {
+    font-family: exoalpha;
+}
+
+.textConv input, text {
+    height: 50px;
+    width: 50%;
+    font-size: 15px;
+    margin-bottom: 15px;
+    vertical-align: top;
+}
+
+.textConvExo input, text {
+    font-family: exoalpha;
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+@font-face {
+    font-family: "exoalpha";
+    src: url("font/exo.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "exoalpha_mono";
+    src: url("font/exomono.ttf") format("truetype");
+}
