@@ -9,6 +9,8 @@
         var string = "";
         function clearChk() {
             document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+            chartotal = 0;
+            char = 0;
         };
         function checkbox(cb) {
             var val = cb.checked ? cb.value : 0 - cb.value;
@@ -18,7 +20,6 @@
             var char = chartotal > 32 && chartotal < 59 ? String.fromCharCode(chartotal + 32) : "";
             string = string + char;
             updateTxt();
-            chartotal = 0;
         };
         function space() {
             string = string + " ";
@@ -33,8 +34,8 @@
             updateTxt();
         };
         function updateTxt() {
-            document.getElementById('textConv').value = string + "_";
-            document.getElementById('textConvExo').value = string + "_";
+            document.getElementById('translation').textContent = string;
+            document.getElementById('glyphs').textContent = string;
             clearChk();
         };
     </script>
@@ -42,77 +43,16 @@
 <body onload="updateTxt()">
 
 <h1>Iglooghost Translator</h1>
-<p>Quick & dirty page for converting one of the new Iglooghost alphabets on <a href="https://exoportal.xyz">Exoportal.xyz</a>.</p>
+<p>Tool to assist in translating new Iglooghost glyphs on <a href="https://exoportal.xyz">Exoportal.xyz</a>.</p>
 
-<div class="alphabet">
-    <table>
-        <tr>
-            <th>A</th>
-            <th>B</th>
-            <th>C</th>
-            <th>D</th>
-            <th>E</th>
-            <th>F</th>
-            <th>G</th>
-            <th>H</th>
-            <th>I</th>
-            <th>J</th>
-            <th>K</th>
-            <th>L</th>
-            <th>M</th>
-            <th>N</th>
-            <th>O</th>
-            <th>P</th>
-            <th>Q</th>
-            <th>R</th>
-            <th>S</th>
-            <th>T</th>
-            <th>U</th>
-            <th>V</th>
-            <th>W</th>
-            <th>X</th>
-            <th>Y</th>
-            <th>Z</th>
-        </tr>
-        <tr>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>D</td>
-            <td>E</td>
-            <td>F</td>
-            <td>G</td>
-            <td>H</td>
-            <td>I</td>
-            <td>J</td>
-            <td>K</td>
-            <td>L</td>
-            <td>M</td>
-            <td>N</td>
-            <td>O</td>
-            <td>P</td>
-            <td>Q</td>
-            <td>R</td>
-            <td>S</td>
-            <td>T</td>
-            <td>U</td>
-            <td>V</td>
-            <td>W</td>
-            <td>X</td>
-            <td>Y</td>
-            <td>Z</td>
-        </tr>
-    </table>
+<hr>
+<div class="translationTitle">
+    <p>Glyphs:</p>
+    <div class="translation"><div class="textConvExo" id="glyphs"></div><span class="cursor">_</span></div>
 </div>
-
-<div class="textConv">
-    <p>English:</p>
-    <input type="text" id="textConv">
-</div>
-
-<div class="textConvExo">
-    <p>New Alpha:</p>
-    <input type="text" id="textConvExo">
+<div class="translationTitle">
+    <p>Translated:</p>
+    <div class="translation"><div class ="textConv" id="translation"></div><span class="cursor">_</span></div>
 </div>
 
 <div class="charInput">
@@ -135,8 +75,88 @@
     </table>
     
 </div>
+<br>
+<hr>
 
+<div class="about">
+    <h1>About</h1>
+    <p>As far as I currently understand the alphabet it looks to be 6 bit binary values from 33 for A through to 59 for Z. 
+        <br>
+        The 2x3 grid is arranged as,
+        <br>
+        <br>
+        | 32 | 8 | 4 |
+        <br>
+        <br>
+        | 16 | 2 | 1 |
+    </p>
+</div>
 
+<div class="alphabet">
+    <p>Cheat Sheet:</p>
+    <table>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+            <td>L</td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+            <td>L</td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td>N</td>
+            <td>O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+            <td>Z</td>
+        </tr>
+        <tr>
+            <td>N</td>
+            <td>O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+            <td>Z</td>
+        </tr>
+    </table>
+</div>
 
 </body>
 </html> 
