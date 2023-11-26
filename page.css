@@ -1,7 +1,7 @@
 body {
     background-color: rgb(50, 50, 50);
 }
-h1 {
+h1, h3 {
     font-family: 'Courier New', Courier, monospace;
     color: white;
     text-decoration-line: underline;
@@ -81,6 +81,20 @@ a {
 
 .charInput table td {
     padding: 10px;
+}
+
+.export {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.exportCan {
+    margin-top: 20px;
+}
+
+.engToGlyph input[type=text]{
+    width: 90%;
+    height: 20px;
 }
 
 .about {
