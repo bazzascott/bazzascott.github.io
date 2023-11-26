@@ -32,12 +32,42 @@
         function clearString() {
             string = "";
             updateTxt();
+            resetCanvas();
         };
         function updateTxt() {
             document.getElementById('translation').textContent = string;
             document.getElementById('glyphs').textContent = string;
             clearChk();
         };
+
+        function exportGlyph() {
+            var textBox = document.getElementById('engTxt');
+            var textStr = textBox.value;
+            textStr = textStr.replace(/[^a-zA-z ]/g, "");
+            if (textStr.length > 0) {
+                var canv = document.getElementById("exportCanvas");
+                var ctx = canv.getContext('2d');
+                ctx.font = '45px exoalpha';
+                canv.width = ctx.measureText(textStr).width + 20;
+                canv.height = ctx.measureText("m").width + 20;
+                ctx.font = '45px exoalpha';
+                ctx.fillStyle = "white";
+                ctx.fillRect(0, 0, canv.width, canv.height);
+                ctx.fillStyle = "black";
+                ctx.fillText(textStr, 10, 25);
+                textBox.value = "";
+                string = textStr.toUpperCase();
+                updateTxt();
+            } else {
+                alert("No valid text to convert.")
+            }
+        }
+
+        function resetCanvas() {
+            var canv = document.getElementById("exportCanvas");
+            canv.width = 0;
+            canv.height = 0;
+        }
     </script>
 </head>
 <body onload="updateTxt()">
@@ -46,6 +76,7 @@
 <p>Tool to assist in translating new Iglooghost glyphs on <a href="https://exoportal.xyz">Exoportal.xyz</a>.</p>
 
 <hr>
+<h3>Glyphs > English</h3>
 <div class="translationTitle">
     <p>Glyphs:</p>
     <div class="translation"><div class="textConvExo" id="glyphs"></div><span class="cursor">_</span></div>
@@ -73,11 +104,14 @@
             <td><input type="button" value="Clear" onclick="clearString()"></td>
         </tr>
     </table>
-    
 </div>
 <br>
 <hr>
-
+<h3>English > Glyphs</h3>
+<div class="engToGlyph"><input type="text" id="engTxt"></div>
+<div class="export"><input type="button" value="Export Glyphs" onclick="exportGlyph()"></div>
+<div class="exportCan"><canvas id="exportCanvas" width="0px" height="0px"></canvas></div>
+<hr>
 <div class="about">
     <h1>About</h1>
     <p>As far as I currently understand the alphabet it looks to be 6 bit binary values from 33 for A through to 59 for Z. 
