@@ -25,6 +25,10 @@
             string = string + " ";
             updateTxt();
         };
+        function rtn() {
+            string = string + "\n";
+            updateTxt();
+        };
         function bkspc() {
             string = string.slice(0,-1);
             updateTxt();
@@ -76,7 +80,7 @@
 <p>Tool to assist in translating new Iglooghost glyphs on <a href="https://exoportal.xyz">Exoportal.xyz</a>.</p>
 
 <hr>
-<h3>Glyphs > English</h3>
+<h3>Glyphs<label class="wht"> > </label>English</h3>
 <div class="translationTitle">
     <p>Glyphs:</p>
     <div class="translation"><div class="textConvExo" id="glyphs"></div><span class="cursor">_</span></div>
@@ -85,31 +89,40 @@
     <p>Translated:</p>
     <div class="translation"><div class ="textConv" id="translation"></div><span class="cursor">_</span></div>
 </div>
-
-<div class="charInput">
-    <table>
-        <tr>
-            <td><input type="checkbox" value="32" onclick="checkbox(this)"></td>
-            <td><input type="checkbox" value="8" onclick="checkbox(this)"></td>
-            <td><input type="checkbox" value="4" onclick="checkbox(this)"></td>
-            <td>&nbsp;</td>
-            <td><input type="button" value="Bkspc" onclick="bkspc()"></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" value="16" onclick="checkbox(this)"></td>
-            <td><input type="checkbox" value="2" onclick="checkbox(this)"></td>
-            <td><input type="checkbox" value="1" onclick="checkbox(this)"></td>
-            <td><input type="button" value="Submit" onclick="submit()"></td>
-            <td><input type="button" value="Space" onclick="space()"></td>
-            <td><input type="button" value="Clear" onclick="clearString()"></td>
-        </tr>
-    </table>
+<div class="glyphInput">
+    <div class="checkWrap">
+        <label class="charInput"><input type="checkbox" value="32" onclick="checkbox(this)"><span class="checkmark"></span></label>
+        <label class="charInput"><input type="checkbox" value="8" onclick="checkbox(this)"><span class="checkmark"></span></label>
+        <label class="charInput"><input type="checkbox" value="4" onclick="checkbox(this)"><span class="checkmark"></span></label>
+    <br>
+        <label class="charInput"><input type="checkbox" value="16" onclick="checkbox(this)"><span class="checkmark"></span></label>
+        <label class="charInput"><input type="checkbox" value="2" onclick="checkbox(this)"><span class="checkmark"></span></label>
+        <label class="charInput"><input type="checkbox" value="1" onclick="checkbox(this)"><span class="checkmark"></span></label>
+    </div>
+</div>
+<div class="buttonInput">
+    <div class="buttons">
+        <label class="btn"><input type="button" value="Backspace" onclick="bkspc()"></label>
+        <label class="btn"><input type="button" value="Clear" onclick="clearString()"></label>
+        <br>
+        <br>
+        <label class="btn"><input type="button" value="Space" onclick="space()"></label> 
+        <label class="btn"><input type="button" value="RTN &#8626;" onclick="rtn()"></label> 
+        
+        <br>
+        <br>
+        <label class="btn"><input type="button" value="Submit" onclick="submit()" style="background-color: rgb(214, 126, 10)"></label>
+    </div>
 </div>
 <br>
+<br>
+<br>
 <hr>
-<h3>English > Glyphs</h3>
+<h3>English<label class="wht"> > </label>Glyphs</h3>
 <div class="engToGlyph"><input type="text" id="engTxt"></div>
-<div class="export"><input type="button" value="Export Glyphs" onclick="exportGlyph()"></div>
+<label class="btn"><input type="button" value="Export Glyphs" onclick="exportGlyph()" style="margin-top:5px; width: 100px; background-color: rgb(214, 126, 10);;"></label>
+<br>
+<br>
 <div class="exportCan"><canvas id="exportCanvas" width="0px" height="0px"></canvas></div>
 <hr>
 <div class="about">
