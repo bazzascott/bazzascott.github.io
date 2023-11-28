@@ -1,17 +1,18 @@
 body {
     background-color: rgb(50, 50, 50);
 }
-h1 {
+h1, h3 {
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(214, 126, 10);
-    text-decoration-line: underline;
+    color: white;
     text-decoration-skip-ink: auto;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
-h3 {
-    font-family: 'Courier New', Courier, monospace;
+.undscr {
+    text-decoration-line: underline;
     color: rgb(214, 126, 10);
 }
+
 p {
     font-family: 'Courier New', Courier, monospace;
     color: white;
@@ -23,11 +24,6 @@ a {
 
 .alphabet {
     margin-top: 30px;
-}
-
-.wht {
-    color: white;
-    text-decoration-line: none;
 }
 
 .alphabet table, td {
@@ -48,6 +44,7 @@ a {
     font-size: 20px;
     color: rgb(214, 126, 10);
     font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
 .cursor {
