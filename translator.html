@@ -46,9 +46,10 @@
 
         function exportGlyph() {
             var textBox = document.getElementById('engTxt');
-            var textStr = textBox.value;
-            textStr = textStr.replace(/[^a-zA-z ]/g, "");
-            if (textStr.length > 0) {
+            var engStr = textBox.value;
+            engStr = engStr.replace(/[^a-zA-z ]/g, "");
+            if (engStr.length > 0 || string.length > 0) {
+                var textStr = engStr.length > 0 ? engStr : string;
                 var canv = document.getElementById("exportCanvas");
                 var ctx = canv.getContext('2d');
                 ctx.font = '45px exoalpha';
