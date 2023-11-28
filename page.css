@@ -1,10 +1,16 @@
 body {
     background-color: rgb(50, 50, 50);
 }
-h1, h3 {
+h1 {
     font-family: 'Courier New', Courier, monospace;
-    color: white;
+    color: rgb(214, 126, 10);
     text-decoration-line: underline;
+    text-decoration-skip-ink: auto;
+}
+
+h3 {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(214, 126, 10);
 }
 p {
     font-family: 'Courier New', Courier, monospace;
@@ -12,11 +18,16 @@ p {
 }
 a {
     color: rgb(214, 126, 10);
-    text-decoration: none;
+    text-decoration-line: none;
 }
 
 .alphabet {
     margin-top: 30px;
+}
+
+.wht {
+    color: white;
+    text-decoration-line: none;
 }
 
 .alphabet table, td {
@@ -56,6 +67,7 @@ a {
     background-color: white;
     min-height: 50px;
     vertical-align: bottom;
+    white-space: pre-line;
 }
 
 .textConv {
@@ -75,12 +87,76 @@ a {
     word-wrap: break-word;
 }
 
-.charInput {
-    margin-top: 20px;
+.glyphInput {
+    margin-top: 125px;
+    display: block;
+    position: relative;
 }
 
-.charInput table td {
-    padding: 10px;
+.charInput {
+    float: left;
+    margin-right: -12px;
+    margin-bottom: -2px;
+}
+
+.charInput input[type=checkbox]{
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkWrap {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.checkmark {
+    float: left;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    background-color: #eee;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.charInput:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.charInput input:checked ~ .checkmark {
+    background-color: black;
+  }
+
+.buttonInput {
+    margin-top: -100px;
+    margin-left: 180px;
+    display: block;
+    position: relative;
+    
+}
+
+.buttons {
+    display: block;
+    position: relative;
+}
+
+.btn {
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.btn input[type=button]{
+    width: 75px;
+    height: 30px;
+    border: transparent;
+    cursor: pointer;
 }
 
 .export {
@@ -108,10 +184,6 @@ a {
 input[type=checkbox] {
     transform: scale(3);
     accent-color: black;
-}
-
-input[type=button] {
-    transform: scale(1.25);
 }
 
 @font-face {
